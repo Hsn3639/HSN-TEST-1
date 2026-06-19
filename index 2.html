@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ETR Supply Chain IQ — Knowledge &amp; Recruitment Assessment</title>
+  <meta name="description" content="ETR Supply Chain IQ is a knowledge base and recruitment assessment for supply chain managers — risk, margins, decision-making, due diligence, market intelligence, negotiation and trading relationships." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='6' fill='%2314130f'/><text x='50' y='72' font-size='64' text-anchor='middle' fill='%23f1efe9' font-family='Arial' font-weight='bold'>E</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" />
+  <script>document.documentElement.classList.add("js");</script>
+  <style>
+/* ETR Supply Chain IQ — design system
+   A clean, accessible, responsive design system using CSS custom properties.
+   No framework, no build step. */
+
+:root {
+  /* Monochrome palette — light */
+  --bg: #f1efe9;             /* warm off-white */
+  --surface: #faf9f5;
+  --surface-2: #e8e5dd;
+  --border: #d9d5cb;
+  --text: #14130f;           /* near-black ink */
+  --text-soft: #5c5a52;
+  --text-faint: #9a978e;
+  --brand: #14130f;          /* ink is the accent */
+  --brand-strong: #000000;
+  --brand-soft: #e6e2d9;
+  --accent: #3a3833;
+  --accent-2: #6a675f;
+  --good: #2a2823;           /* tonal grayscale for charts/bands */
+  --warn: #7c7972;
+  --bad: #b3afa4;
+  --ring: rgba(20, 19, 15, 0.4);
+
+  /* Gradients */
+  --grad-brand: linear-gradient(135deg, #2a2823 0%, #14130f 100%);
+  --grad-hero: radial-gradient(1100px 600px at 78% -8%, rgba(20,19,15,0.06), transparent 60%);
+
+  /* Type — distinctive, non-generic */
+  --font: "Space Grotesk", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-display: "Syne", "Arial Black", sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-mono: "SF Mono", ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+
+  /* Geometry — sharp, architectural */
+  --radius: 5px;
+  --radius-sm: 3px;
+  --shadow: 0 1px 2px rgba(20, 19, 15, 0.04), 0 12px 34px rgba(20, 19, 15, 0.07);
+  --shadow-lg: 0 22px 60px rgba(20, 19, 15, 0.16);
+  --maxw: 1180px;
+  --ease: cubic-bezier(.22,.61,.18,1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #100f0d;
+    --surface: #181713;
+    --surface-2: #211f1b;
+    --border: #2c2a24;
+    --text: #f0eee8;
+    --text-soft: #9a978e;
+    --text-faint: #6a675f;
+    --brand: #f0eee8;          /* light ink as accent on dark */
+    --brand-strong: #ffffff;
+    --brand-soft: #23211c;
+    --accent: #cfcabf;
+    --accent-2: #9a978e;
+    --good: #e8e5dd;
+    --warn: #9a978e;
+    --bad: #5c5a52;
+    --ring: rgba(240, 238, 232, 0.4);
+    --shadow: 0 1px 2px rgba(0,0,0,0.5), 0 12px 34px rgba(0,0,0,0.5);
+    --shadow-lg: 0 22px 60px rgba(0,0,0,0.6);
+    --grad-brand: linear-gradient(135deg, #f0eee8 0%, #cfcabf 100%);
+    --grad-hero: radial-gradient(1100px 600px at 78% -8%, rgba(240,238,232,0.05), transparent 60%);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  background-image: var(--grad-hero);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.003em;
+}
+
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav {
+  display: flex; align-items: center; gap: 18px;
+  height: 62px;
+}
+.brand {
+  display: flex; align-items: center; gap: 11px;
+  font-weight: 800; letter-spacing: -0.02em; font-size: 1.16rem;
+  color: var(--text);
+}
+.brand:hover { text-decoration: none; }
+.brand .mark {
+  width: 34px; height: 34px; border-radius: var(--radius-sm);
+  background: var(--brand);
+  display: grid; place-items: center; color: var(--bg); font-weight: 800; font-size: 0.95rem;
+  font-family: var(--font-display);
+}
+.nav .spacer { flex: 1; }
+.nav a.navlink {
+  color: var(--text-soft); font-weight: 600; font-size: 0.95rem;
+  padding: 8px 12px; border-radius: 8px;
+}
+.nav a.navlink:hover { color: var(--text); background: var(--surface-2); text-decoration: none; }
+.nav a.navlink.active { color: var(--brand); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: inherit; font-weight: 650; font-size: 0.97rem;
+  padding: 11px 18px; border-radius: 10px; border: 1px solid transparent;
+  cursor: pointer; transition: transform .08s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--brand); color: var(--bg); }
+.btn-primary:hover { background: var(--brand-strong); text-decoration: none; transform: translateY(-1px); }
+.btn-ghost { background: var(--surface); color: var(--text); border-color: var(--border); }
+.btn-ghost:hover { background: var(--surface-2); text-decoration: none; }
+.btn:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+
+/* ---------- Hero ---------- */
+.hero { padding: 92px 0 56px; }
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.02;
+  letter-spacing: -0.015em; margin: 0 0 22px; font-weight: 400;
+}
+.hero p.lead { font-size: 1.24rem; color: var(--text-soft); max-width: 660px; margin: 0 0 30px; line-height: 1.55; }
+.hero .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 7px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--brand); background: var(--brand-soft);
+  padding: 7px 14px; border-radius: 999px; margin-bottom: 20px;
+  border: 1px solid color-mix(in srgb, var(--brand) 22%, transparent);
+}
+.eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--brand); }
+
+/* ---------- Cards / grid ---------- */
+.grid { display: grid; gap: 18px; }
+.grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 820px) { .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; } }
+
+.card {
+  position: relative; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow);
+  transition: transform .16s ease, box-shadow .18s ease, border-color .18s ease;
+}
+a.card { display: block; }
+a.card::after {
+  content: ""; position: absolute; left: 24px; right: 24px; top: 0; height: 3px; border-radius: 0 0 3px 3px;
+  background: var(--grad-brand); opacity: 0; transition: opacity .18s ease;
+}
+a.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: color-mix(in srgb, var(--brand) 45%, var(--border)); text-decoration: none; }
+a.card:hover::after { opacity: 1; }
+.card h3 { margin: 12px 0 6px; font-size: 1.16rem; letter-spacing: -0.01em; font-weight: 700; }
+.card p { margin: 0; color: var(--text-soft); font-size: 0.96rem; }
+.card .pill-ico {
+  width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center;
+  font-size: 1.4rem; background: var(--brand-soft);
+  border: 1px solid color-mix(in srgb, var(--brand) 16%, transparent);
+}
+
+section.block { padding: 46px 0; }
+.section-title { font-family: var(--font-display); font-weight: 600; font-size: 1.9rem; letter-spacing: -0.015em; margin: 0 0 8px; }
+.section-sub { color: var(--text-soft); margin: 0 0 28px; max-width: 700px; font-size: 1.02rem; }
+
+/* ---------- Learn module reader ---------- */
+.layout { display: grid; grid-template-columns: 260px 1fr; gap: 32px; padding: 30px 0 60px; }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+.sidebar { position: sticky; top: 80px; align-self: start; }
+.sidebar nav { display: flex; flex-direction: column; gap: 2px; }
+.sidebar a {
+  padding: 9px 12px; border-radius: 8px; color: var(--text-soft); font-weight: 600; font-size: 0.93rem;
+}
+.sidebar a:hover { background: var(--surface-2); color: var(--text); text-decoration: none; }
+.sidebar a.active { background: var(--brand-soft); color: var(--brand); }
+
+article.module h1 { font-family: var(--font-display); font-weight: 600; font-size: 2.35rem; letter-spacing: -0.018em; margin: 6px 0 4px; line-height: 1.1; }
+article.module .kicker { color: var(--brand); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.78rem; }
+article.module h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; margin: 38px 0 12px; letter-spacing: -0.01em; padding-top: 8px; }
+article.module h3 { font-size: 1.1rem; margin: 22px 0 6px; font-weight: 700; }
+article.module p, article.module li { color: var(--text); }
+article.module ul { padding-left: 20px; }
+article.module li { margin: 6px 0; }
+
+.callout {
+  border-left: 4px solid var(--accent); background: var(--surface-2);
+  padding: 14px 18px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 18px 0;
+}
+.callout strong { color: var(--text); }
+
+.kpi-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95rem; border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
+.kpi-table th, .kpi-table td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--border); }
+.kpi-table th { color: var(--text-faint); font-weight: 700; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.05em; background: var(--surface-2); }
+.kpi-table tr:last-child td { border-bottom: none; }
+.kpi-table tbody tr:nth-child(even) td, .kpi-table tr:nth-child(even) td { background: color-mix(in srgb, var(--surface-2) 45%, transparent); }
+
+/* ---------- Simple bar chart (Strategy) ---------- */
+.chart { margin: 20px 0 8px; display: flex; flex-direction: column; gap: 14px; }
+.chart-row { display: grid; grid-template-columns: 180px 1fr; gap: 14px; align-items: center; }
+@media (max-width: 640px) { .chart-row { grid-template-columns: 1fr; gap: 4px; } }
+.chart-label { font-weight: 600; font-size: 0.92rem; }
+.chart-track { background: var(--surface-2); border-radius: 999px; height: 26px; position: relative; overflow: hidden; }
+.chart-fill { height: 100%; border-radius: 999px; background: var(--brand); display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; color: var(--bg); font-weight: 700; font-size: 0.8rem; min-width: 38px; }
+.chart-fill.alt { background: var(--accent); }
+.chart-fill.muted { background: var(--text-faint); }
+.chart-caption { font-size: 0.85rem; color: var(--text-faint); margin-top: 2px; }
+
+.tag {
+  display: inline-block; font-size: 0.78rem; font-weight: 700; padding: 3px 9px;
+  border-radius: 999px; background: var(--surface-2); color: var(--text-soft);
+}
+
+/* ---------- Assessment ---------- */
+.quiz-shell { max-width: 760px; margin: 0 auto; padding: 30px 0 70px; }
+.progress { height: 8px; background: var(--surface-2); border-radius: 999px; overflow: hidden; margin: 18px 0 26px; }
+.progress > span { display: block; height: 100%; background: linear-gradient(90deg, var(--brand), var(--accent)); width: 0; transition: width .3s ease; }
+
+.q-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); }
+.q-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; color: var(--text-faint); font-size: 0.85rem; font-weight: 600; }
+.q-stem { font-size: 1.18rem; font-weight: 650; letter-spacing: -0.01em; margin: 0 0 8px; }
+.q-context { color: var(--text-soft); margin: 0 0 18px; }
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option {
+  display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm); cursor: pointer;
+  transition: border-color .12s ease, background .12s ease;
+}
+.option:hover { border-color: var(--brand); background: var(--brand-soft); }
+.option.selected { border-color: var(--brand); background: var(--brand-soft); box-shadow: inset 0 0 0 1px var(--brand); }
+.option input { margin-top: 4px; accent-color: var(--brand); }
+.option .otext { flex: 1; }
+
+.quiz-actions { display: flex; justify-content: space-between; margin-top: 24px; }
+
+/* Results */
+.score-hero { text-align: center; padding: 20px 0 10px; }
+.score-ring {
+  --val: 0; width: 168px; height: 168px; border-radius: 50%; margin: 0 auto 18px;
+  background: conic-gradient(var(--brand) calc(var(--val) * 1%), var(--surface-2) 0);
+  display: grid; place-items: center;
+}
+.score-ring .inner {
+  width: 132px; height: 132px; border-radius: 50%; background: var(--surface);
+  display: grid; place-items: center; box-shadow: var(--shadow);
+}
+.score-ring .num { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; }
+.band { font-weight: 700; font-size: 1.1rem; }
+
+.bar-row { margin: 16px 0; }
+.bar-head { display: flex; justify-content: space-between; font-weight: 650; margin-bottom: 6px; }
+.bar-head .pct { color: var(--text-soft); }
+.bar { height: 12px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+.bar > span { display: block; height: 100%; border-radius: 999px; }
+
+.profile-note { font-size: 0.9rem; color: var(--text-soft); margin-top: 4px; }
+
+.print-only { display: none; }
+@media print {
+  .site-header, .quiz-actions, .no-print { display: none !important; }
+  body { background: #fff; }
+  .print-only { display: block; }
+  .card, .q-card { box-shadow: none; }
+}
+
+/* ---------- Footer ---------- */
+.site-footer { border-top: 1px solid var(--border); padding: 30px 0; color: var(--text-faint); font-size: 0.9rem; margin-top: 40px; }
+.site-footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+.note-banner {
+  background: var(--brand-soft); border: 1px solid color-mix(in srgb, var(--brand) 30%, transparent);
+  border-radius: var(--radius-sm); padding: 12px 16px; font-size: 0.92rem; color: var(--text); margin: 18px 0;
+}
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0; background: var(--brand); color: var(--bg);
+  padding: 10px 16px; border-radius: 0 0 8px 0; z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+/* ---------- Page-load curtain transition ---------- */
+.curtain {
+  position: fixed; inset: 0; z-index: 300; background: var(--brand);
+  display: grid; place-items: center;
+  transition: transform 1s var(--ease); transform: translateY(0);
+}
+.curtain.up { transform: translateY(-100%); }
+.curtain span {
+  font-family: var(--font-display); font-weight: 800; letter-spacing: 0.34em;
+  color: var(--bg); font-size: 0.95rem; text-indent: 0.34em;
+  animation: curtainPulse 1.1s ease-in-out infinite alternate;
+}
+@keyframes curtainPulse { from { opacity: 0.4; } to { opacity: 1; } }
+
+/* ---------- Staggered reveal animations (scoped to exclude the interactive quiz) ---------- */
+html.js :is(
+  .hero .eyebrow, .hero h1, .hero .lead, .hero .cta,
+  [data-view-section="home"] .section-title, [data-view-section="home"] .section-sub,
+  [data-view-section="home"] .card, [data-view-section="strategy"] .card,
+  article.module .kicker, article.module h1, article.module h2,
+  article.module > p, article.module > ul,
+  article.module .kpi-table, article.module .callout, article.module .chart,
+  article.module .step, article.module .note-banner
+) {
+  opacity: 0; transform: translateY(26px);
+  transition: opacity 0.8s var(--ease), transform 0.9s var(--ease);
+  will-change: opacity, transform;
+}
+html.js .is-in { opacity: 1 !important; transform: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js :is(
+    .hero .eyebrow, .hero h1, .hero .lead, .hero .cta,
+    [data-view-section="home"] .section-title, [data-view-section="home"] .section-sub,
+    [data-view-section="home"] .card, [data-view-section="strategy"] .card,
+    article.module .kicker, article.module h1, article.module h2,
+    article.module > p, article.module > ul,
+    article.module .kpi-table, article.module .callout, article.module .chart,
+    article.module .step, article.module .note-banner
+  ) { opacity: 1; transform: none; }
+  .curtain { display: none; }
+}
+  </style>
+</head>
+<body>
+  <div class="curtain" id="curtain"><span>ETR SUPPLY CHAIN IQ</span></div>
+  <a class="skip-link" href="#home" data-view="home">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#home" data-view="home"><span class="mark">E</span> ETR Supply Chain IQ</a>
+      <span class="spacer"></span>
+      <a class="navlink" href="#learn" data-view="learn">Learn</a>
+      <a class="navlink" href="#assess" data-view="assess">Assess</a>
+      <a class="navlink" href="#forhr" data-view="forhr">For HR</a>
+      <a class="navlink" href="#strategy" data-view="strategy">Strategy</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= HOME ================= -->
+    <div data-view-section="home">
+      <section class="hero wrap">
+        <span class="eyebrow">Knowledge + Assessment</span>
+        <h1>Everything a supply chain manager must know — and a test to find one.</h1>
+        <p class="lead">ETR Supply Chain IQ is two things in one place: a practical knowledge base covering the seven competencies that define a strong supply chain manager, and a recruitment assessment HR can use to measure them in a candidate.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#learn" data-view="learn">Explore the knowledge base</a>
+          <a class="btn btn-ghost" href="#assess" data-view="assess">Run the assessment</a>
+          <a class="btn btn-ghost" href="#strategy" data-view="strategy">View growth strategy</a>
+        </div>
+      </section>
+
+      <section class="block wrap">
+        <h2 class="section-title">The seven competencies</h2>
+        <p class="section-sub">Each is taught in the knowledge base and measured in the assessment, so what you hire for is exactly what the role demands.</p>
+        <div class="grid cols-3">
+          <a class="card" href="#learn/risk" data-view="learn" data-module="risk"><div class="pill-ico">🛡️</div><h3>Risk Management</h3><p>See failure before it happens and buy down its likelihood and impact.</p></a>
+          <a class="card" href="#learn/margin" data-view="learn" data-module="margin"><div class="pill-ico">📈</div><h3>Margins &amp; Profitability</h3><p>Landed cost, TCO and the levers that protect the bottom line.</p></a>
+          <a class="card" href="#learn/decision" data-view="learn" data-module="decision"><div class="pill-ico">🧭</div><h3>Decision Making</h3><p>Sound, defensible calls under uncertainty and time pressure.</p></a>
+          <a class="card" href="#learn/diligence" data-view="learn" data-module="diligence"><div class="pill-ico">🔍</div><h3>Due Diligence</h3><p>Verify legitimacy, capability, compliance and ethics before you commit.</p></a>
+          <a class="card" href="#learn/intelligence" data-view="learn" data-module="intelligence"><div class="pill-ico">🛰️</div><h3>Market Intelligence</h3><p>Read prices, capacity and geopolitics to buy ahead of the curve.</p></a>
+          <a class="card" href="#learn/negotiation" data-view="learn" data-module="negotiation"><div class="pill-ico">🤝</div><h3>Negotiation</h3><p>Win on value, not just price — preparation, leverage and trading variables.</p></a>
+        </div>
+        <div class="grid cols-3" style="margin-top:18px;">
+          <a class="card" href="#learn/relationships" data-view="learn" data-module="relationships"><div class="pill-ico">🌐</div><h3>Trading Relationships</h3><p>Build partnerships that are reliable, trusted and built to last.</p></a>
+          <a class="card" href="#assess" data-view="assess"><div class="pill-ico">📝</div><h3>The Assessment</h3><p>28 scenario &amp; knowledge questions producing a full competency profile.</p></a>
+          <a class="card" href="#forhr" data-view="forhr"><div class="pill-ico">🧑‍💼</div><h3>For Recruiters</h3><p>How to run the test and read the strengths/weaknesses report.</p></a>
+        </div>
+      </section>
+
+      <section class="block wrap">
+        <div class="card" style="background:linear-gradient(135deg,var(--brand-soft),var(--surface));">
+          <h2 class="section-title">What makes this different</h2>
+          <p class="section-sub">Most online supply-chain "tests" are generic quizzes that return a single pass/fail number. They tell a recruiter almost nothing about <em>what kind</em> of manager a candidate is.</p>
+          <div class="grid cols-3">
+            <div><h3>Competency-mapped</h3><p>Every question maps to one of the seven competencies, so results are a profile — not one blurred score.</p></div>
+            <div><h3>Judgement, not luck</h3><p>Situational questions give partial credit for defensible choices, rewarding real judgement over memorised facts.</p></div>
+            <div><h3>Actionable for HR</h3><p>The report flags development areas and hands the recruiter tailored interview questions to probe them.</p></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= LEARN ================= -->
+    <div data-view-section="learn">
+      <div class="wrap">
+        <div class="layout">
+          <aside class="sidebar no-print">
+            <div class="tag" style="margin-bottom:10px;">Knowledge base</div>
+            <nav id="module-nav" aria-label="Modules"></nav>
+            <div style="margin-top:22px;">
+              <a class="btn btn-primary" href="#assess" data-view="assess" style="width:100%;justify-content:center;">Take the assessment</a>
+            </div>
+          </aside>
+          <article class="module" id="module-content"></article>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= ASSESS ================= -->
+    <div data-view-section="assess">
+      <div class="wrap">
+        <div class="quiz-shell" id="quiz">
+          <noscript><p class="note-banner">This assessment needs JavaScript enabled in your browser.</p></noscript>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= FOR HR ================= -->
+    <div data-view-section="forhr">
+      <div class="wrap">
+        <article class="module" style="max-width:760px;margin:0 auto;padding:30px 0 60px;">
+          <div class="kicker">For recruiters</div>
+          <h1>Using the assessment to hire a supply chain manager</h1>
+          <p class="section-sub">A short guide to running the assessment fairly and getting real signal from it.</p>
+
+          <h2>How it works</h2>
+          <p>The candidate answers 28 questions across the seven competencies. Each answer carries a score from 0 to 3 — situational questions give partial credit for sensible-but-weaker choices, so the result reflects judgement rather than guesswork. The output is a <strong>competency profile</strong>: an overall score, a bar for each of the seven areas, the candidate's strengths, their development areas, and a set of interview questions tailored to those weaker areas.</p>
+
+          <h2>Reading the score bands</h2>
+          <table class="kpi-table">
+            <tr><th>Band</th><th>Score</th><th>Interpretation</th></tr>
+            <tr><td>Expert</td><td>85%+</td><td>Strong, well-grounded judgement across the board.</td></tr>
+            <tr><td>Advanced</td><td>70–84%</td><td>Solid; ready for the role with normal onboarding.</td></tr>
+            <tr><td>Proficient</td><td>50–69%</td><td>Capable but with clear gaps worth probing in interview.</td></tr>
+            <tr><td>Developing</td><td>under 50%</td><td>Notable gaps; suitable for more junior roles or with development.</td></tr>
+          </table>
+
+          <h2>Running it well</h2>
+          <ul>
+            <li><strong>Administer it consistently</strong> — same instructions and conditions for every candidate. This is what makes results comparable and fair.</li>
+            <li><strong>Use the per-competency profile, not just the headline number.</strong> A candidate strong on negotiation but weak on due diligence is a different hire from the reverse — match the profile to what your role actually needs most.</li>
+            <li><strong>Use the suggested interview probes</strong> to turn weak areas into a structured conversation rather than a rejection.</li>
+            <li><strong>Print or save the report (PDF)</strong> to attach to the candidate record.</li>
+          </ul>
+
+          <div class="note-banner">
+            <strong>Fairness &amp; good practice.</strong> Treat this as one input among several — interviews, references and a practical task. Don't use a single cut-off score as an automatic reject. Make reasonable adjustments for candidates who need them, and keep the same process for everyone so your hiring is consistent and defensible.
+          </div>
+
+          <h2>What it does not do</h2>
+          <p>It doesn't measure personality, culture fit, or domain specifics unique to your industry (cold-chain, defence, pharma, etc.). Pair it with role-specific questions of your own. It also stores nothing — results live only in the browser until you print them — so there's no candidate data to manage on a server.</p>
+
+          <div class="cta" style="display:flex;gap:12px;margin-top:24px;">
+            <a class="btn btn-primary" href="#assess" data-view="assess">Open the assessment</a>
+            <a class="btn btn-ghost" href="#learn" data-view="learn">Review the knowledge base</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ================= STRATEGY ================= -->
+    <div data-view-section="strategy">
+      <div class="wrap">
+        <article class="module" style="max-width:880px;margin:0 auto;padding:30px 0 60px;">
+          <div class="kicker">Strategic Advisory</div>
+          <h1>🚀 ETR Growth Strategy</h1>
+          <p class="section-sub">A market-entry and sales-growth playbook for a women's health, fertility, family-planning and consumer-health brand expanding across MENA, Africa and other emerging markets.</p>
+
+          <div class="note-banner">
+            <strong>Executive summary.</strong> The fastest, lowest-cost growth for an established global consumer-health brand is not a head-on fight with the category leader in saturated Western retail — it is disciplined expansion into <strong>under-served, high-growth markets</strong> (MENA, North &amp; Sub-Saharan Africa, the Gulf and South Asia), executed through <strong>professionally managed distributors</strong>, an <strong>activated e-commerce channel</strong>, and the <strong>institutional / NGO family-planning tender</strong> route. This plan turns those three levers into a 90-day mobilisation and a 12-month roadmap, measured by a clear KPI framework.
+          </div>
+
+          <h2>1. The market opportunity</h2>
+          <p>Demand for fertility, family-planning and sexual-wellness products is rising fastest outside the mature Western markets, driven by population growth, rising disposable income, expanding modern retail and pharmacy networks, and large publicly-funded family-planning and HIV-prevention programmes.</p>
+          <ul>
+            <li><strong>Geographic white space</strong> — MENA, North &amp; Sub-Saharan Africa and the Gulf are typically under-served by the category leader, leaving room for a credible challenger to take share early.</li>
+            <li><strong>Channel growth</strong> — modern trade, pharmacy chains and e-commerce are all expanding simultaneously in these regions.</li>
+            <li><strong>Institutional demand</strong> — ministries of health, the UNFPA and NGOs procure family-planning and prevention products at scale through tenders.</li>
+            <li><strong>Portfolio leverage</strong> — once a distributor network is opened for one category, adjacent categories (men's health, nutrition, women's wellness) can be cross-sold through the same channel at low marginal cost.</li>
+          </ul>
+
+          <h2>2. Competitive landscape</h2>
+          <p>The category is concentrated around one dominant incumbent and a handful of established challengers, with the rest fragmented and regional. The incumbent's strength is brand awareness and Western retail distribution; its weakness is limited focus on emerging markets and institutional channels.</p>
+          <table class="kpi-table">
+            <tr><th>Player type</th><th>Typical strength</th><th>Typical weakness / opening</th></tr>
+            <tr><td>Category leader</td><td>Brand awareness, Western retail shelf space</td><td>Thin presence in MENA/Africa &amp; tenders</td></tr>
+            <tr><td>Established challengers</td><td>Clinical credibility, niche loyalty</td><td>Limited global distribution muscle</td></tr>
+            <tr><td>Regional / private label</td><td>Low price</td><td>Weak brand, quality &amp; compliance gaps</td></tr>
+            <tr><td><strong>Our position</strong></td><td><strong>Clinical credibility + agile emerging-market distribution</strong></td><td><strong>Awareness to be built — addressed below</strong></td></tr>
+          </table>
+          <div class="callout"><strong>Where we win:</strong> the markets and channels the leader under-invests in — emerging-market modern trade, pharmacy detailing, e-commerce, and the institutional tender route — backed by genuine clinical/regulatory credibility.</div>
+
+          <h3>Relative growth headroom by region (illustrative)</h3>
+          <div class="chart" role="img" aria-label="Illustrative growth headroom by region: MENA and North Africa highest, Sub-Saharan Africa and Gulf high, mature Western markets low.">
+            <div class="chart-row"><span class="chart-label">MENA &amp; North Africa</span><div class="chart-track"><div class="chart-fill" style="width:92%">High</div></div></div>
+            <div class="chart-row"><span class="chart-label">Sub-Saharan Africa</span><div class="chart-track"><div class="chart-fill" style="width:80%">High</div></div></div>
+            <div class="chart-row"><span class="chart-label">Gulf (GCC)</span><div class="chart-track"><div class="chart-fill alt" style="width:68%">Strong</div></div></div>
+            <div class="chart-row"><span class="chart-label">South &amp; SE Asia</span><div class="chart-track"><div class="chart-fill alt" style="width:60%">Strong</div></div></div>
+            <div class="chart-row"><span class="chart-label">Mature Western retail</span><div class="chart-track"><div class="chart-fill muted" style="width:28%">Saturated</div></div></div>
+          </div>
+          <p class="chart-caption">Illustrative prioritisation, not measured market data — to be replaced with internal sales figures.</p>
+
+          <h2>3. Strategic pillars</h2>
+          <div class="grid cols-2">
+            <div class="card"><h3>① Distribution excellence</h3><p>Re-qualify and tier distributors; install KPI scorecards (sell-through, coverage, OTIF, payment); replace under-performers; reward customers of choice. Turn a passive distributor list into an accountable, managed network.</p></div>
+            <div class="card"><h3>② Channel diversification</h3><p>Balance modern trade, independent pharmacy, clinics/hospitals, and e-commerce so no single channel dictates terms — and so the brand is present wherever the consumer actually buys.</p></div>
+            <div class="card"><h3>③ Digital &amp; DTC</h3><p>Activate marketplaces (Amazon &amp; regional), a direct webshop and subscription repeat-purchase, plus education-led content marketing for a sensitive, trust-driven category.</p></div>
+            <div class="card"><h3>④ Institutional &amp; tender</h3><p>Build a bid capability for ministries, UNFPA and NGO programmes — registration, due diligence, pricing and compliance — a high-volume channel the leader largely ignores.</p></div>
+            <div class="card"><h3>⑤ Brand &amp; clinical credibility</h3><p>Lead with the science (safety, efficacy, certifications) and consistent multi-market positioning to convert trial into loyalty.</p></div>
+            <div class="card"><h3>⑥ Portfolio cross-sell</h3><p>Push adjacent categories through the opened network, lifting revenue per distributor without new acquisition cost.</p></div>
+          </div>
+
+          <h2>4. The 30–60–90 day plan</h2>
+          <table class="kpi-table">
+            <tr><th>Phase</th><th>Focus</th><th>Key actions</th></tr>
+            <tr><td><strong>Days 0–30 — Listen &amp; diagnose</strong></td><td>Evidence base</td><td>Audit every market &amp; distributor; rank by revenue, growth and risk; map the competitor by country; agree the KPI framework and a single source of truth for sales data.</td></tr>
+            <tr><td><strong>Days 31–60 — Prioritise &amp; fix</strong></td><td>Quick wins</td><td>Identify the top 5 growth markets and the bottom under-performers; renegotiate or replace weak distributors; launch distributor scorecards; open the first e-commerce listings; build the tender pipeline.</td></tr>
+            <tr><td><strong>Days 61–90 — Mobilise &amp; commit</strong></td><td>Roadmap &amp; targets</td><td>Sign 2–3 new distributor/market deals; submit first institutional bids; present the 12-month plan with committed targets, owners and a reporting cadence.</td></tr>
+          </table>
+
+          <h2>5. Twelve-month growth roadmap</h2>
+          <ul>
+            <li><strong>Q1</strong> — Network re-tiered &amp; scorecards live; data &amp; reporting in place; quick-win markets accelerating.</li>
+            <li><strong>Q2</strong> — New distributors signed in 2–3 white-space markets; e-commerce channel live in priority regions.</li>
+            <li><strong>Q3</strong> — First institutional/tender wins; portfolio cross-sell launched through existing distributors.</li>
+            <li><strong>Q4</strong> — Scale what works, exit what doesn't; lock annual contracts; set next-year targets from a now-reliable baseline.</li>
+          </ul>
+
+          <h2>6. How success is measured (KPIs)</h2>
+          <table class="kpi-table">
+            <tr><th>KPI</th><th>What it proves</th></tr>
+            <tr><td>Revenue &amp; growth by market / channel</td><td>Where growth is really coming from</td></tr>
+            <tr><td>Distributor sell-through &amp; numeric distribution</td><td>Real demand vs stuffing the channel</td></tr>
+            <tr><td>New markets / distributors opened</td><td>Expansion velocity</td></tr>
+            <tr><td>Tenders bid / won &amp; pipeline value</td><td>Institutional channel traction</td></tr>
+            <tr><td>E-commerce revenue &amp; repeat rate</td><td>Direct &amp; recurring demand</td></tr>
+            <tr><td>Gross margin &amp; price realisation</td><td>Profitable, disciplined growth</td></tr>
+            <tr><td>Distributor OTIF &amp; days-sales-outstanding</td><td>Operational &amp; cash health</td></tr>
+          </table>
+
+          <h2>7. Why ETR — value proposition</h2>
+          <p><em>[Editable — replace with your own bio.]</em> A commercially-minded sales leader with deep <strong>MENA and emerging-market</strong> experience, an <strong>import / trade and supply-chain</strong> background, and a network of distributors and institutional buyers. Combines the discipline of the seven competencies in this knowledge base — risk, margin, decision-making, due diligence, market intelligence, negotiation and trading relationships — with hands-on regional execution to open exactly the markets and channels that bigger players overlook.</p>
+
+          <div class="callout"><strong>Methodology &amp; assumptions.</strong> This plan is built on publicly available market information and standard commercial-strategy frameworks. Specific market figures are illustrative and the competitive observations are hypotheses to be validated with internal data before commitments are made. It is intended as a strategic point of view, not a forecast.</div>
+
+          <div class="cta" style="display:flex;gap:12px;margin-top:24px;">
+            <a class="btn btn-primary" href="#learn" data-view="learn">See the competency knowledge base</a>
+            <a class="btn btn-ghost" href="#assess" data-view="assess">Try the assessment</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>ETR Supply Chain IQ · Supply Chain Manager Knowledge &amp; Assessment</span>
+      <span>© <span data-year></span></span>
+    </div>
+  </footer>
+  <script>
+/* ETR Supply Chain IQ — curriculum content.
+   Seven competency pillars for a supply chain manager.
+   Content is intentionally practical: frameworks, playbooks, pitfalls and KPIs.
+   Rendered by assets/js/learn.js. HTML strings are trusted (authored here, not user input). */
+
+window.CURRICULUM = [
+  {
+    id: "risk",
+    icon: "🛡️",
+    title: "Risk Management",
+    summary: "Identify, quantify and mitigate the threats that can break a supply chain — from a single late shipment to a supplier going bust.",
+    body: `
+      <p>Risk management is the discipline of seeing failure before it happens and buying down its probability or its impact. A supply chain manager who cannot do this is simply waiting to be unlucky.</p>
+
+      <h2>The four families of supply chain risk</h2>
+      <ul>
+        <li><strong>Supply risk</strong> — supplier insolvency, single-source dependency, quality failures, capacity shortfalls.</li>
+        <li><strong>Demand risk</strong> — forecast error, demand volatility, bullwhip amplification up the chain.</li>
+        <li><strong>Operational / process risk</strong> — logistics disruption, IT failure, port congestion, customs delays.</li>
+        <li><strong>External / environmental risk</strong> — geopolitics, sanctions, FX swings, natural disasters, regulation, pandemics.</li>
+      </ul>
+
+      <h2>How to quantify a risk</h2>
+      <p>Score every identified risk on two axes and multiply them to get a priority:</p>
+      <div class="callout"><strong>Risk exposure = Likelihood × Impact.</strong> Add a third lens — <em>velocity</em> (how fast it hits) and <em>detectability</em> (how early you'd see it) — to decide whether to prevent, hedge, or simply monitor.</div>
+      <p>A high-impact / low-likelihood event (a fire at a sole-source plant) is managed differently from a low-impact / high-likelihood one (routine customs delays). The first needs a contingency plan and dual sourcing; the second needs buffer stock and process improvement.</p>
+
+      <h2>Core mitigation strategies</h2>
+      <ul>
+        <li><strong>Diversify</strong> — dual/multi-sourcing, multiple lanes and ports, supplier geographic spread.</li>
+        <li><strong>Buffer</strong> — safety stock, capacity buffers, lead-time buffers — sized to service-level targets, not guessed.</li>
+        <li><strong>Contract</strong> — penalty clauses, business-continuity commitments, force-majeure definitions, take-or-pay terms.</li>
+        <li><strong>Insure / hedge</strong> — cargo insurance, trade credit insurance, FX and commodity hedging.</li>
+        <li><strong>Visibility</strong> — multi-tier mapping so you know your suppliers' suppliers (where most surprises live).</li>
+      </ul>
+
+      <h2>Playbook: building a risk register</h2>
+      <ol>
+        <li>Map the end-to-end flow and mark every node and lane.</li>
+        <li>List the failure modes at each node (an FMEA-style sweep).</li>
+        <li>Score likelihood × impact × velocity; rank.</li>
+        <li>Assign an owner and a mitigation + a contingency to the top risks.</li>
+        <li>Define trigger metrics ("if supplier OTD < 92% for 2 months → activate backup").</li>
+        <li>Review quarterly; rehearse the worst cases with a tabletop exercise.</li>
+      </ol>
+
+      <div class="callout"><strong>Common pitfalls:</strong> treating the risk register as a compliance document nobody reads; ignoring tier-2/3 suppliers; confusing a cheap price with a low-risk source; and never rehearsing the contingency so it fails the day it's needed.</div>
+
+      <h2>Metrics that matter</h2>
+      <table class="kpi-table">
+        <tr><th>Metric</th><th>What it tells you</th></tr>
+        <tr><td>Supplier OTIF (On Time In Full)</td><td>Reliability of inbound supply</td></tr>
+        <tr><td>Time-to-Recover (TTR)</td><td>How long to restore flow after a node fails</td></tr>
+        <tr><td>Single-source spend %</td><td>Concentration / fragility of the base</td></tr>
+        <tr><td>Days of supply / buffer cover</td><td>How long you survive a disruption</td></tr>
+      </table>
+    `
+  },
+  {
+    id: "margin",
+    icon: "📈",
+    title: "Margins & Profitability",
+    summary: "Understand where money is actually made and lost — landed cost, margin vs markup, and the total cost of ownership behind every 'cheap' quote.",
+    body: `
+      <p>Procurement and supply chain decisions are profit decisions. A 1% reduction in purchased cost often moves the bottom line more than a 5% increase in sales. To manage margin you must first be able to read it.</p>
+
+      <h2>Margin vs markup — get this right</h2>
+      <p>These are not the same number and confusing them loses money.</p>
+      <div class="callout">
+        <strong>Markup</strong> = (Price − Cost) / <em>Cost</em>. &nbsp;
+        <strong>Gross margin</strong> = (Price − Cost) / <em>Price</em>.<br>
+        A 50% markup is only a 33% margin. A 100% markup is a 50% margin.
+      </div>
+
+      <h2>Landed cost &gt; unit price</h2>
+      <p>The quoted unit price is rarely the real cost. <strong>Landed cost</strong> adds everything required to get the goods into your warehouse, sellable:</p>
+      <ul>
+        <li>Unit / FOB price</li>
+        <li>Freight (sea/air/road) and fuel surcharges</li>
+        <li>Duties, tariffs and import taxes (HS-code dependent)</li>
+        <li>Insurance, port and handling fees, customs brokerage</li>
+        <li>Inventory carrying cost, currency conversion, payment terms cost</li>
+      </ul>
+      <p>A supplier who is 8% cheaper at the factory gate can be more expensive landed once freight and duty are added — and far more expensive once lead-time and quality risk are priced in.</p>
+
+      <h2>Total Cost of Ownership (TCO)</h2>
+      <p>TCO extends landed cost across the whole life of the relationship: cost of poor quality (returns, rework, scrap), cost of lateness (expediting, lost sales, stockouts), cost of managing the supplier, and end-of-life costs. <em>Award on TCO, not on the lowest quote.</em></p>
+
+      <h2>Levers a supply chain manager pulls on margin</h2>
+      <ul>
+        <li><strong>Cost-down</strong> — renegotiation, volume consolidation, should-cost modelling, value engineering, spec rationalisation.</li>
+        <li><strong>Working capital</strong> — payment terms (DPO), inventory turns, consignment stock, supplier financing.</li>
+        <li><strong>Mix & rationalisation</strong> — cut tail spend, standardise SKUs, drop margin-dilutive lines.</li>
+        <li><strong>Freight & duty</strong> — incoterm optimisation, mode shift, tariff engineering, free-trade-agreement use.</li>
+      </ul>
+
+      <div class="callout"><strong>Should-cost modelling:</strong> build up what a part <em>ought</em> to cost from raw material + process + labour + overhead + reasonable margin. It turns negotiation from "haggling over their number" into "discussing the real number".</div>
+
+      <h2>Metrics that matter</h2>
+      <table class="kpi-table">
+        <tr><th>Metric</th><th>What it tells you</th></tr>
+        <tr><td>Gross margin %</td><td>Profit retained per unit sold</td></tr>
+        <tr><td>Landed cost variance</td><td>Quote discipline vs reality</td></tr>
+        <tr><td>Inventory turns / DIO</td><td>How hard working capital is working</td></tr>
+        <tr><td>Cash-to-cash cycle</td><td>Days cash is tied up across the chain</td></tr>
+        <tr><td>Cost-avoidance & savings</td><td>Realised value from sourcing activity</td></tr>
+      </table>
+    `
+  },
+  {
+    id: "decision",
+    icon: "🧭",
+    title: "Decision Making",
+    summary: "Make sound, defensible calls under uncertainty and time pressure — using structured frameworks instead of gut feel alone.",
+    body: `
+      <p>A supply chain manager decides constantly: which supplier, how much to buy, when to expedite, whether to hold the line on a late order. Good decision-making is a repeatable process, not a personality trait.</p>
+
+      <h2>A structured decision process</h2>
+      <ol>
+        <li><strong>Frame</strong> the decision — what exactly are we deciding, and what does a good outcome look like?</li>
+        <li><strong>Gather</strong> the relevant facts — but timebox it; perfect information never arrives.</li>
+        <li><strong>Generate options</strong> — never decide between one option and nothing.</li>
+        <li><strong>Evaluate</strong> against weighted criteria (cost, risk, lead time, quality, strategic fit).</li>
+        <li><strong>Decide & commit</strong>, then communicate the rationale.</li>
+        <li><strong>Review</strong> the outcome to improve the next decision.</li>
+      </ol>
+
+      <h2>Useful frameworks</h2>
+      <ul>
+        <li><strong>Weighted decision matrix</strong> — score options against weighted criteria; great for supplier selection.</li>
+        <li><strong>Expected value</strong> — probability × payoff across scenarios; good for "do we hold buffer or not".</li>
+        <li><strong>Kraljic matrix</strong> — segment spend by supply risk and profit impact into Strategic, Leverage, Bottleneck and Routine — then apply the right strategy to each quadrant.</li>
+        <li><strong>Reversible vs irreversible (one-way vs two-way doors)</strong> — decide reversible things fast; slow down only for the irreversible ones.</li>
+      </ul>
+
+      <div class="callout"><strong>The Kraljic quadrants:</strong> <em>Strategic</em> (high risk, high value) → partner and de-risk; <em>Leverage</em> (low risk, high value) → compete and consolidate; <em>Bottleneck</em> (high risk, low value) → secure supply and find alternatives; <em>Routine</em> (low risk, low value) → automate and simplify.</div>
+
+      <h2>Cognitive traps to defend against</h2>
+      <ul>
+        <li><strong>Sunk-cost fallacy</strong> — sticking with a failing supplier because you've invested in them.</li>
+        <li><strong>Anchoring</strong> — letting the first number quoted frame the whole negotiation.</li>
+        <li><strong>Confirmation bias</strong> — only seeking data that supports the choice you already like.</li>
+        <li><strong>Recency / availability bias</strong> — over-weighting the last disruption you personally felt.</li>
+      </ul>
+
+      <h2>Deciding under pressure</h2>
+      <p>When time is short, use a <strong>satisficing</strong> approach: define the minimum acceptable criteria and pick the first option that clears them, rather than chasing the theoretical optimum. Record the assumption you made so it can be revisited when the dust settles.</p>
+
+      <div class="callout"><strong>Pitfall:</strong> analysis paralysis. A timely 80%-right decision usually beats a perfect decision that arrives after the ship has sailed — literally.</div>
+    `
+  },
+  {
+    id: "diligence",
+    icon: "🔍",
+    title: "Due Diligence",
+    summary: "Verify before you commit — financial health, capability, compliance, ethics and legitimacy of any supplier or trading partner.",
+    body: `
+      <p>Due diligence is the systematic verification you perform <em>before</em> trusting a counterparty with your money, your brand and your continuity. Skipping it is how organisations end up with fraudulent suppliers, sanctioned partners, or factories that collapse mid-contract.</p>
+
+      <h2>The dimensions to verify</h2>
+      <ul>
+        <li><strong>Legitimacy</strong> — does the company legally exist? Registration, trading history, real address, beneficial ownership.</li>
+        <li><strong>Financial health</strong> — solvency, liquidity, credit rating, payment behaviour, dependency on you.</li>
+        <li><strong>Capability & capacity</strong> — can they actually make/deliver at your volume and quality? Audited, not claimed.</li>
+        <li><strong>Quality & certification</strong> — ISO 9001, sector certs, test reports, sample inspection.</li>
+        <li><strong>Compliance & ethics</strong> — sanctions and denied-party screening, anti-bribery (FCPA/UK Bribery Act), modern-slavery, ESG, conflict minerals.</li>
+        <li><strong>Cyber & data</strong> — if they touch your systems or data, their security posture is your risk.</li>
+      </ul>
+
+      <h2>Red flags that should stop a deal</h2>
+      <ul>
+        <li>Reluctance to provide documentation, references or to be audited.</li>
+        <li>Prices far below market with no credible explanation.</li>
+        <li>Pressure to skip verification or to pay to an unrelated third-party account.</li>
+        <li>Mismatched company details (name on invoice ≠ registered entity ≠ bank account name).</li>
+        <li>No verifiable physical operation; a "factory" that is really a broker.</li>
+        <li>Recently changed bank details requested by email (classic invoice-redirection fraud).</li>
+      </ul>
+
+      <div class="callout"><strong>Fraud control:</strong> always verify a change of bank details through a known, independently-sourced phone number — never the contact on the email requesting the change. This single control stops most payment-diversion fraud.</div>
+
+      <h2>A proportionate due-diligence process</h2>
+      <ol>
+        <li><strong>Risk-tier the counterparty</strong> — spend, criticality, country risk decide how deep you go.</li>
+        <li><strong>Desk check</strong> — registry lookup, sanctions/PEP screening, credit report, web/news search.</li>
+        <li><strong>Documentary check</strong> — certs, financials, insurance, references.</li>
+        <li><strong>On-site / third-party audit</strong> for strategic or high-risk suppliers.</li>
+        <li><strong>Sample & trial order</strong> before full commitment.</li>
+        <li><strong>Continuous monitoring</strong> — re-screen and re-assess; diligence is not one-and-done.</li>
+      </ol>
+
+      <div class="callout"><strong>Pitfall:</strong> doing diligence once at onboarding and never again. A supplier that was healthy two years ago may be insolvent today, or may have appeared on a sanctions list last month.</div>
+    `
+  },
+  {
+    id: "intelligence",
+    icon: "🛰️",
+    title: "Market & Competitive Intelligence",
+    summary: "Read the market — prices, capacity, competitors, geopolitics and demand signals — so you buy ahead of the curve instead of reacting to it.",
+    body: `
+      <p>Intelligence is turning scattered signals into foresight. The manager with good market intelligence buys before a price spike, secures capacity before a shortage, and walks into negotiations knowing more than the person across the table.</p>
+
+      <h2>What you are trying to know</h2>
+      <ul>
+        <li><strong>Cost drivers</strong> — commodity and raw-material indices, energy, freight rates, FX, labour costs.</li>
+        <li><strong>Supply market structure</strong> — who the players are, capacity, utilisation, lead times, consolidation.</li>
+        <li><strong>Demand & competitor signals</strong> — what rivals are buying, building, or discounting.</li>
+        <li><strong>Macro & geopolitics</strong> — tariffs, sanctions, regulation, elections, conflict, climate.</li>
+        <li><strong>Technology & substitution</strong> — new materials or processes that change the cost base.</li>
+      </ul>
+
+      <h2>Sources — and how to weigh them</h2>
+      <table class="kpi-table">
+        <tr><th>Source type</th><th>Examples</th></tr>
+        <tr><td>Market data</td><td>Commodity indices, freight indices, PMI, customs/trade data</td></tr>
+        <tr><td>Supplier-facing</td><td>RFI responses, supplier business reviews, capacity disclosures</td></tr>
+        <tr><td>Open source</td><td>News, trade press, company filings, patents, job postings</td></tr>
+        <tr><td>Field intelligence</td><td>Trade shows, site visits, your own buyers' and sales team's ears</td></tr>
+      </table>
+      <div class="callout"><strong>Triangulate:</strong> never act on a single source. Confirm a signal from at least two independent sources before betting on it, and distinguish hard data from rumour.</div>
+
+      <h2>Turning data into a decision</h2>
+      <ol>
+        <li><strong>Collect</strong> continuously against a defined watch-list of categories and risks.</li>
+        <li><strong>Analyse</strong> — trend, not snapshot. Where is the line heading, and why?</li>
+        <li><strong>Interpret</strong> — what does this mean for <em>our</em> price, supply and timing?</li>
+        <li><strong>Act</strong> — forward-buy, lock a contract, switch source, hedge, or hold.</li>
+      </ol>
+
+      <h2>Legal and ethical lines</h2>
+      <div class="callout"><strong>Stay clean:</strong> competitive intelligence uses public and lawfully-obtained information. It never involves misrepresentation, theft of trade secrets, inducing breach of confidentiality, or price-fixing collusion with competitors. Crossing that line is a legal and reputational catastrophe.</div>
+
+      <h2>Metrics that matter</h2>
+      <table class="kpi-table">
+        <tr><th>Metric</th><th>What it tells you</th></tr>
+        <tr><td>Price vs index variance</td><td>Whether you are buying well relative to the market</td></tr>
+        <tr><td>Forecast vs actual cost</td><td>Quality of your market foresight</td></tr>
+        <tr><td>Lead-time trend by category</td><td>Early warning of tightening supply</td></tr>
+      </table>
+    `
+  },
+  {
+    id: "negotiation",
+    icon: "🤝",
+    title: "Negotiation Skills",
+    summary: "Reach agreements that protect margin and relationship — through preparation, leverage, and trading variables beyond just price.",
+    body: `
+      <p>Negotiation is not haggling. It is the structured pursuit of an agreement that both sides will honour. The best supply chain negotiators win on <em>value</em>, not just price, and they prepare more than they perform.</p>
+
+      <h2>Preparation wins the negotiation</h2>
+      <p>Before you ever sit down, know:</p>
+      <ul>
+        <li><strong>Your BATNA</strong> — Best Alternative To a Negotiated Agreement. Your power comes from your willingness to walk to a real alternative.</li>
+        <li><strong>Your reservation point</strong> — the walk-away you will not cross.</li>
+        <li><strong>Your target & opening</strong> — ambitious but justifiable.</li>
+        <li><strong>The ZOPA</strong> — the Zone Of Possible Agreement between your limits and theirs.</li>
+        <li><strong>Their interests</strong> — not just their position. <em>Why</em> do they want what they're asking for?</li>
+      </ul>
+
+      <div class="callout"><strong>Position vs interest:</strong> a position is "I need 60-day terms". The interest behind it might be "my cash flow is tight in Q1". Solve the interest (a phased schedule, supplier financing) and you often unlock a deal a positional fight would have killed.</div>
+
+      <h2>Expand the pie before dividing it</h2>
+      <p>Price is one variable among many. Skilled negotiators trade across the whole package: volume and commitment length, payment terms, lead time, MOQs, quality guarantees, tooling ownership, exclusivity, rebates, incoterms, and risk-sharing. Concede on what is cheap for you but valuable to them, and capture what is cheap for them but valuable to you.</p>
+
+      <h2>Tactics — and counters</h2>
+      <ul>
+        <li><strong>Anchor</strong> first with a credible, well-justified number to frame the range.</li>
+        <li><strong>Never concede for free</strong> — every "give" should be conditional ("if you... then I...").</li>
+        <li><strong>Silence</strong> is a tool; resist the urge to fill it.</li>
+        <li><strong>Watch for tactics</strong> — good-cop/bad-cop, false deadlines, "highest authority", nibbling at the end. Name them calmly and don't be rushed.</li>
+      </ul>
+
+      <h2>Integrative vs distributive</h2>
+      <p>A one-off commodity buy can be <strong>distributive</strong> (claim the most value now). A strategic, long-term supplier should be <strong>integrative</strong> (grow value together). Using a distributive, win-lose style on a partner you depend on is a classic, expensive mistake — you win the meeting and lose the relationship.</p>
+
+      <div class="callout"><strong>Pitfall:</strong> "winning" so hard the supplier can't make money. A supplier squeezed below survival will cut quality, deprioritise you, or fail — and you inherit the disruption.</div>
+
+      <h2>Close cleanly</h2>
+      <p>Summarise agreed points in writing, confirm scope and exclusions, and make sure the contract reflects the deal. A handshake that isn't documented isn't a deal.</p>
+    `
+  },
+  {
+    id: "relationships",
+    icon: "🌐",
+    title: "Establishing Trading Relationships",
+    summary: "Build and govern supplier and partner relationships that are reliable, trusted and built to last — across cultures and borders.",
+    body: `
+      <p>Transactions are easy; relationships are durable. Long-term trading relationships are where reliability, preferential treatment, joint innovation and resilience actually come from. They are built deliberately, not by accident.</p>
+
+      <h2>From transaction to partnership</h2>
+      <p>Not every supplier should be a partner. Match the relationship depth to the spend and risk (see the Kraljic logic in Decision Making):</p>
+      <ul>
+        <li><strong>Transactional</strong> — routine, low-risk buys; keep it efficient and arm's-length.</li>
+        <li><strong>Collaborative</strong> — important categories; regular reviews, shared forecasts.</li>
+        <li><strong>Strategic partnership</strong> — critical, hard-to-replace suppliers; joint planning, executive sponsorship, shared risk and reward.</li>
+      </ul>
+
+      <h2>What makes a relationship work</h2>
+      <ul>
+        <li><strong>Reliability</strong> — you both do what you said you'd do, consistently. Trust is repeated kept promises.</li>
+        <li><strong>Transparency</strong> — honest forecasts, early warning of problems, no surprises.</li>
+        <li><strong>Mutual benefit</strong> — the supplier must make a fair return; one-sided deals decay.</li>
+        <li><strong>Governance</strong> — clear contacts, escalation paths, scorecards and a cadence of reviews.</li>
+        <li><strong>Fairness in conflict</strong> — how you behave when something goes wrong defines the relationship more than the good times.</li>
+      </ul>
+
+      <div class="callout"><strong>Become a customer of choice:</strong> when supply is tight, suppliers allocate to the customers who are easiest, fairest and most valuable to deal with. Paying on time, forecasting honestly and treating people with respect literally buys you priority in a shortage.</div>
+
+      <h2>Working across cultures and borders</h2>
+      <p>International trading relationships add layers: language, time zones, negotiation styles, the pace at which trust is built, and differing attitudes to contracts vs personal relationships. Do your cultural homework, invest in face-to-face time early, and be explicit about expectations that you'd otherwise assume are shared. Get the legal basics right too — incoterms, governing law, dispute resolution, and currency.</p>
+
+      <h2>Governing the relationship over time</h2>
+      <ol>
+        <li><strong>Onboard</strong> properly (after due diligence) — clear specs, terms and contacts.</li>
+        <li><strong>Score</strong> performance against agreed KPIs (OTIF, quality, responsiveness, cost).</li>
+        <li><strong>Review</strong> on a regular cadence — quarterly business reviews for key suppliers.</li>
+        <li><strong>Develop</strong> — joint improvement plans, not just grading.</li>
+        <li><strong>Exit gracefully</strong> when needed — a clean, fair exit protects your reputation and keeps the door open.</li>
+      </ol>
+
+      <div class="callout"><strong>Pitfall:</strong> only contacting a supplier when there's a problem. Relationships maintained only in crises have no reserve of goodwill to draw on when you really need it.</div>
+    `
+  }
+];
+/* ETR Supply Chain IQ — recruitment assessment bank.
+   Each question maps to ONE competency pillar so results produce a per-competency profile.
+   Scoring: each option carries a score 0..3 (3 = best answer, 0 = poor/risky answer).
+   - "knowledge" items have one clearly correct answer (3) and distractors (0).
+   - "judgment" (situational) items reward the best course of action and give partial
+     credit for defensible-but-weaker choices, so the profile reflects judgement, not luck.
+   This per-competency, partial-credit design is what generic pass/fail quizzes lack:
+   it tells a recruiter WHAT KIND of manager the candidate is, not just a single score. */
+
+window.ASSESSMENT = {
+  // Pillar metadata (titles mirror the curriculum). Used to build the profile + interview probes.
+  competencies: {
+    risk:          { title: "Risk Management" },
+    margin:        { title: "Margins & Profitability" },
+    decision:      { title: "Decision Making" },
+    diligence:     { title: "Due Diligence" },
+    intelligence:  { title: "Market & Competitive Intelligence" },
+    negotiation:   { title: "Negotiation" },
+    relationships: { title: "Trading Relationships" }
+  },
+
+  // Interview probes a recruiter can ask to dig deeper where a candidate scored low.
+  probes: {
+    risk: [
+      "Tell me about a disruption you saw coming. What early signal did you spot, and what did you do before it hit?",
+      "Walk me through how you'd build a risk register for a category that is single-sourced from one country."
+    ],
+    margin: [
+      "A supplier's factory-gate price is 8% below the incumbent. How do you decide whether it's actually cheaper?",
+      "What's the difference between a 50% markup and a 50% margin, and why does it matter to you?"
+    ],
+    decision: [
+      "Describe a high-stakes decision you made with incomplete information. How did you structure it?",
+      "How do you decide whether a decision deserves deep analysis or a fast call?"
+    ],
+    diligence: [
+      "A new overseas supplier emails asking you to send payment to a different bank account. What do you do?",
+      "What would make you walk away from a supplier during onboarding, even at a great price?"
+    ],
+    intelligence: [
+      "How do you form a view on where a key commodity price is heading?",
+      "Give an example of acting on a market signal before it became obvious to everyone."
+    ],
+    negotiation: [
+      "What's your BATNA in a typical negotiation, and how does it change how you behave?",
+      "Tell me about a deal where you traded variables other than price to reach agreement."
+    ],
+    relationships: [
+      "How do you become a 'customer of choice' so suppliers prioritise you in a shortage?",
+      "Tell me about a supplier relationship that went wrong. What did you do, and what did you learn?"
+    ]
+  },
+
+  questions: [
+    /* ---------------- RISK ---------------- */
+    {
+      id: "risk1", competency: "risk", type: "judgment",
+      stem: "Your sole supplier of a critical component is in a region hit by a sudden export ban. You hold three weeks of stock. What is your first move?",
+      context: "It's a critical part with no immediate alternative qualified.",
+      options: [
+        { text: "Immediately activate your contingency plan: assess true days-of-cover, contact pre-qualified backups, and convene the cross-functional response team.", score: 3 },
+        { text: "Place a large rush order with the same supplier hoping it clears before the ban tightens.", score: 1 },
+        { text: "Wait two weeks to see whether the ban is lifted before doing anything.", score: 0 },
+        { text: "Tell the sales team to stop taking orders for affected products and move on.", score: 1 }
+      ]
+    },
+    {
+      id: "risk2", competency: "risk", type: "knowledge",
+      stem: "How is a risk's priority most usefully quantified for a risk register?",
+      context: "",
+      options: [
+        { text: "Likelihood × Impact (optionally refined by velocity and detectability).", score: 3 },
+        { text: "By how recently a similar event last happened to you.", score: 0 },
+        { text: "By the supplier's unit price.", score: 0 },
+        { text: "Alphabetically by supplier name for easy lookup.", score: 0 }
+      ]
+    },
+    {
+      id: "risk3", competency: "risk", type: "judgment",
+      stem: "Where do unexpected supply disruptions most often originate?",
+      context: "",
+      options: [
+        { text: "In the lower tiers (your suppliers' suppliers) that you have least visibility into.", score: 3 },
+        { text: "Only in your direct, tier-1 suppliers — anything deeper isn't your concern.", score: 1 },
+        { text: "Almost always from your own warehouse.", score: 0 },
+        { text: "They are essentially random and can't be anticipated.", score: 0 }
+      ]
+    },
+    {
+      id: "risk4", competency: "risk", type: "judgment",
+      stem: "You've built a contingency plan for your top supply risk. What's the most important thing to do next?",
+      context: "",
+      options: [
+        { text: "Rehearse it (e.g. a tabletop exercise) and define the trigger metrics that activate it.", score: 3 },
+        { text: "File it and consider the risk handled.", score: 0 },
+        { text: "Share it publicly so suppliers know you have one.", score: 1 },
+        { text: "Delete the risk from the register since it now has a plan.", score: 0 }
+      ]
+    },
+
+    /* ---------------- MARGIN ---------------- */
+    {
+      id: "margin1", competency: "margin", type: "knowledge",
+      stem: "A product costs you £100 and you sell it for £150. What is the gross margin?",
+      context: "",
+      options: [
+        { text: "33% (margin is profit ÷ selling price).", score: 3 },
+        { text: "50% (£50 profit ÷ £100 cost).", score: 1 },
+        { text: "150%.", score: 0 },
+        { text: "£50, margin can't be a percentage.", score: 0 }
+      ]
+    },
+    {
+      id: "margin2", competency: "margin", type: "judgment",
+      stem: "Supplier A quotes 8% below your incumbent's factory-gate price. How do you evaluate the offer?",
+      context: "Supplier A is overseas; the incumbent is regional.",
+      options: [
+        { text: "Compare full landed cost and TCO — freight, duty, lead-time, quality and risk — not the unit price.", score: 3 },
+        { text: "Switch immediately; 8% cheaper is 8% cheaper.", score: 0 },
+        { text: "Reject it; cheaper always means worse.", score: 1 },
+        { text: "Split the order 50/50 without analysis to be safe.", score: 1 }
+      ]
+    },
+    {
+      id: "margin3", competency: "margin", type: "knowledge",
+      stem: "Which lever improves the cash-to-cash cycle without changing unit price?",
+      context: "",
+      options: [
+        { text: "Extending supplier payment terms and increasing inventory turns.", score: 3 },
+        { text: "Paying every supplier upfront in cash.", score: 0 },
+        { text: "Holding more safety stock of every SKU.", score: 0 },
+        { text: "Buying larger batches than demand requires.", score: 0 }
+      ]
+    },
+    {
+      id: "margin4", competency: "margin", type: "judgment",
+      stem: "You're preparing to renegotiate a key part's price. What gives you the strongest position on cost?",
+      context: "",
+      options: [
+        { text: "A should-cost model built up from materials, process, labour and overhead.", score: 3 },
+        { text: "Whatever discount the supplier feels like offering this year.", score: 0 },
+        { text: "The price you paid last year plus a guess at inflation.", score: 1 },
+        { text: "The cheapest price you once saw advertised anywhere online.", score: 1 }
+      ]
+    },
+
+    /* ---------------- DECISION ---------------- */
+    {
+      id: "decision1", competency: "decision", type: "knowledge",
+      stem: "The Kraljic matrix segments spend along which two axes?",
+      context: "",
+      options: [
+        { text: "Supply risk and profit impact.", score: 3 },
+        { text: "Supplier size and head-office location.", score: 0 },
+        { text: "Payment terms and delivery distance.", score: 0 },
+        { text: "Brand familiarity and marketing spend.", score: 0 }
+      ]
+    },
+    {
+      id: "decision2", competency: "decision", type: "judgment",
+      stem: "You must choose between four suppliers on cost, lead time, quality and risk. What's the soundest approach?",
+      context: "",
+      options: [
+        { text: "Score each option against weighted criteria in a decision matrix, then decide.", score: 3 },
+        { text: "Pick the cheapest; price is what matters.", score: 1 },
+        { text: "Go with whichever sales rep you liked most.", score: 0 },
+        { text: "Delay until one supplier drops out so the choice is easier.", score: 0 }
+      ]
+    },
+    {
+      id: "decision3", competency: "decision", type: "judgment",
+      stem: "You've spent six months and significant budget developing a supplier who is consistently underperforming. A better alternative now exists. What should most influence your decision?",
+      context: "",
+      options: [
+        { text: "The future cost and benefit of each option — the past investment is a sunk cost.", score: 3 },
+        { text: "How much you've already spent; you can't waste that investment.", score: 0 },
+        { text: "Avoiding the awkward conversation of ending the relationship.", score: 0 },
+        { text: "Whichever choice requires the least paperwork today.", score: 1 }
+      ]
+    },
+    {
+      id: "decision4", competency: "decision", type: "judgment",
+      stem: "A reversible, low-stakes operational decision needs making and information is incomplete. What's the best response?",
+      context: "",
+      options: [
+        { text: "Make a timely call against minimum acceptable criteria and revisit if needed.", score: 3 },
+        { text: "Keep gathering data until you are 100% certain.", score: 1 },
+        { text: "Escalate every such decision to your director.", score: 1 },
+        { text: "Avoid deciding so you can't be blamed.", score: 0 }
+      ]
+    },
+
+    /* ---------------- DUE DILIGENCE ---------------- */
+    {
+      id: "diligence1", competency: "diligence", type: "judgment",
+      stem: "An established supplier emails to say their bank details have changed and asks you to redirect the next payment. What do you do?",
+      context: "The email looks normal and uses your usual contact's name.",
+      options: [
+        { text: "Verify the change by calling a known, independently-sourced number before paying — never the contact on the email.", score: 3 },
+        { text: "Update the details and pay; the email came from your usual contact.", score: 0 },
+        { text: "Reply to the email asking them to confirm the new details again.", score: 1 },
+        { text: "Pay a small test amount first, then the rest if it goes through.", score: 1 }
+      ]
+    },
+    {
+      id: "diligence2", competency: "diligence", type: "knowledge",
+      stem: "Which of these is a legitimate part of supplier due diligence?",
+      context: "",
+      options: [
+        { text: "Sanctions / denied-party screening and beneficial-ownership checks.", score: 3 },
+        { text: "Assuming legitimacy because they have a professional website.", score: 0 },
+        { text: "Skipping checks if the price is attractive enough.", score: 0 },
+        { text: "Relying solely on the supplier's own marketing claims.", score: 0 }
+      ]
+    },
+    {
+      id: "diligence3", competency: "diligence", type: "judgment",
+      stem: "Which of these is the clearest red flag during onboarding of a new overseas supplier?",
+      context: "",
+      options: [
+        { text: "Reluctance to be audited, plus a registered company name that doesn't match the bank account name.", score: 3 },
+        { text: "They ask you to sign a mutual NDA before sharing specs.", score: 0 },
+        { text: "They have a formal quality-management certification.", score: 0 },
+        { text: "They request a realistic lead time rather than promising the impossible.", score: 0 }
+      ]
+    },
+    {
+      id: "diligence4", competency: "diligence", type: "judgment",
+      stem: "You completed thorough due diligence when onboarding a strategic supplier two years ago. What's the right ongoing approach?",
+      context: "",
+      options: [
+        { text: "Continuously monitor and periodically re-screen — financial health and sanctions status change over time.", score: 3 },
+        { text: "Nothing further; diligence done at onboarding is sufficient forever.", score: 0 },
+        { text: "Only re-check if they actually fail to deliver.", score: 1 },
+        { text: "Re-run the full audit weekly regardless of risk tier.", score: 1 }
+      ]
+    },
+
+    /* ---------------- INTELLIGENCE ---------------- */
+    {
+      id: "intelligence1", competency: "intelligence", type: "judgment",
+      stem: "You hear a rumour that a key raw material will spike in price next quarter. How do you act?",
+      context: "",
+      options: [
+        { text: "Triangulate against independent sources (indices, supplier signals, trade data) before deciding to forward-buy or hedge.", score: 3 },
+        { text: "Immediately place a huge forward order based on the rumour alone.", score: 1 },
+        { text: "Ignore it; rumours are never useful.", score: 0 },
+        { text: "Tell competitors to coordinate a joint buying response.", score: 0 }
+      ]
+    },
+    {
+      id: "intelligence2", competency: "intelligence", type: "knowledge",
+      stem: "Which metric best shows whether you're buying well relative to the market?",
+      context: "",
+      options: [
+        { text: "Your price versus the relevant market/commodity index over time.", score: 3 },
+        { text: "The number of suppliers in your address book.", score: 0 },
+        { text: "How many quotes you requested last month.", score: 1 },
+        { text: "The age of your longest supplier relationship.", score: 0 }
+      ]
+    },
+    {
+      id: "intelligence3", competency: "intelligence", type: "judgment",
+      stem: "Which of the following crosses the legal/ethical line for competitive intelligence?",
+      context: "",
+      options: [
+        { text: "Misrepresenting yourself to obtain a competitor's confidential pricing, or agreeing prices with rivals.", score: 3 },
+        { text: "Analysing competitors' public filings and patents.", score: 0 },
+        { text: "Reading published commodity indices and trade press.", score: 0 },
+        { text: "Listening to what your own sales team hears in the market.", score: 0 }
+      ],
+      note: "Here the 'best' answer is the one that correctly identifies the prohibited behaviour."
+    },
+    {
+      id: "intelligence4", competency: "intelligence", type: "judgment",
+      stem: "Lead times for a category you buy have crept up across three suppliers over two quarters. What does a strong manager conclude?",
+      context: "",
+      options: [
+        { text: "Supply is likely tightening — investigate causes and consider securing capacity early.", score: 3 },
+        { text: "It's coincidence; lead times always wobble.", score: 1 },
+        { text: "Nothing to do until a supplier actually fails to deliver.", score: 0 },
+        { text: "Switch all spend to the one supplier who hasn't slipped yet, without checking why.", score: 1 }
+      ]
+    },
+
+    /* ---------------- NEGOTIATION ---------------- */
+    {
+      id: "negotiation1", competency: "negotiation", type: "knowledge",
+      stem: "What does BATNA stand for, and why does it matter?",
+      context: "",
+      options: [
+        { text: "Best Alternative To a Negotiated Agreement — it's the source of your walk-away power.", score: 3 },
+        { text: "Basic Agreement on Trade, Negotiation & Authority — a contract template.", score: 0 },
+        { text: "Budget Adjustment Tool for Negotiated Amounts.", score: 0 },
+        { text: "It's a tactic for pressuring suppliers with fake deadlines.", score: 0 }
+      ]
+    },
+    {
+      id: "negotiation2", competency: "negotiation", type: "judgment",
+      stem: "A supplier insists on 30-day payment terms; you want 60. Negotiation is stuck on this point. What's the most skilful move?",
+      context: "",
+      options: [
+        { text: "Explore the interest behind their position (likely cash flow) and trade other variables to solve it.", score: 3 },
+        { text: "Refuse to move and threaten to walk regardless of your alternatives.", score: 1 },
+        { text: "Concede fully to 30 days to keep things friendly.", score: 1 },
+        { text: "Stop negotiating and impose your terms unilaterally.", score: 0 }
+      ]
+    },
+    {
+      id: "negotiation3", competency: "negotiation", type: "judgment",
+      stem: "You depend heavily on a strategic, hard-to-replace supplier. What negotiation style serves you best long-term?",
+      context: "",
+      options: [
+        { text: "Integrative — grow value together while still protecting your interests.", score: 3 },
+        { text: "Maximally distributive — squeeze every penny each time.", score: 0 },
+        { text: "Avoid negotiating at all to keep them happy.", score: 1 },
+        { text: "Threaten to switch at every review even though you can't.", score: 0 }
+      ]
+    },
+    {
+      id: "negotiation4", competency: "negotiation", type: "judgment",
+      stem: "During a deal the supplier makes a concession and asks for one back. How should you handle your concessions?",
+      context: "",
+      options: [
+        { text: "Make every concession conditional and reciprocal ('if you..., then I...').", score: 3 },
+        { text: "Give concessions freely to build goodwill.", score: 1 },
+        { text: "Never concede anything on principle.", score: 1 },
+        { text: "Agree verbally to everything and sort the details out later.", score: 0 }
+      ]
+    },
+
+    /* ---------------- RELATIONSHIPS ---------------- */
+    {
+      id: "relationships1", competency: "relationships", type: "judgment",
+      stem: "Supply of a key item suddenly tightens market-wide and your supplier must ration output. What most improves your chance of being prioritised?",
+      context: "",
+      options: [
+        { text: "Having been a 'customer of choice' — paying on time, forecasting honestly, easy and fair to deal with.", score: 3 },
+        { text: "Sending an aggressive legal letter demanding your full allocation.", score: 0 },
+        { text: "Offering to abandon them the moment supply normalises.", score: 0 },
+        { text: "Only now, for the first time, calling to introduce yourself.", score: 1 }
+      ]
+    },
+    {
+      id: "relationships2", competency: "relationships", type: "judgment",
+      stem: "How should the depth of a supplier relationship be decided?",
+      context: "",
+      options: [
+        { text: "Match it to spend and risk — transactional for routine, partnership for critical/strategic items.", score: 3 },
+        { text: "Treat every supplier as a deep strategic partner regardless of spend.", score: 1 },
+        { text: "Keep all suppliers arm's-length to avoid dependency.", score: 1 },
+        { text: "Base it on which supplier offers the best corporate hospitality.", score: 0 }
+      ]
+    },
+    {
+      id: "relationships3", competency: "relationships", type: "judgment",
+      stem: "You only ever contact one of your important suppliers when something has gone wrong. What's the risk?",
+      context: "",
+      options: [
+        { text: "There's no reserve of goodwill to draw on when you genuinely need their help.", score: 3 },
+        { text: "None — suppliers prefer to be left alone unless there's a problem.", score: 0 },
+        { text: "It saves time and is best practice.", score: 0 },
+        { text: "It makes them lower their prices automatically.", score: 0 }
+      ]
+    },
+    {
+      id: "relationships4", competency: "relationships", type: "judgment",
+      stem: "You must end a relationship with an underperforming supplier. What's the most professional approach?",
+      context: "",
+      options: [
+        { text: "Exit cleanly and fairly per the contract, protecting continuity and your reputation.", score: 3 },
+        { text: "Stop paying and ignore their calls until they go away.", score: 0 },
+        { text: "Publicly criticise them to justify the decision.", score: 0 },
+        { text: "Keep stringing them along to avoid the conversation.", score: 1 }
+      ]
+    }
+  ]
+};
+/* ETR Supply Chain IQ — recruitment assessment engine.
+   Presents one question at a time, records answers, then computes a per-competency
+   profile with an overall score, banding, strengths/development areas and tailored
+   interview probes for the recruiter. Everything runs client-side. */
+(function () {
+  var DATA = window.ASSESSMENT;
+  if (!DATA) return;
+
+  var shell = document.getElementById("quiz");
+  if (!shell) return;
+
+  // --- State ---
+  var questions = DATA.questions.slice();
+  var answers = {};        // questionId -> chosen option index
+  var current = 0;
+  var started = false;
+  var candidateName = "";
+
+  // Shuffle option order per question so position carries no signal, but remember
+  // the mapping back to the original (scored) options.
+  questions.forEach(function (q) {
+    var order = q.options.map(function (_, i) { return i; });
+    for (var i = order.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = order[i]; order[i] = order[j]; order[j] = t;
+    }
+    q._order = order;
+  });
+
+  function el(html) {
+    var d = document.createElement("div");
+    d.innerHTML = html.trim();
+    return d.firstChild;
+  }
+
+  // --- Screens ---
+  function renderIntro() {
+    shell.innerHTML =
+      '<div class="card" style="max-width:680px;margin:0 auto;">' +
+        '<span class="eyebrow">Recruitment assessment</span>' +
+        "<h1 style=\"margin-top:6px;\">Supply Chain Manager Competency Assessment</h1>" +
+        "<p class=\"section-sub\">" + questions.length + " scenario and knowledge questions across seven competencies. " +
+        "Allow about 15 minutes. There is no time limit. Your result is a competency profile — strengths, development areas, and suggested interview questions — which you can print or save as PDF.</p>" +
+        '<label style="display:block;font-weight:650;margin:14px 0 6px;">Candidate name (optional, for the report)</label>' +
+        '<input id="cand" type="text" placeholder="e.g. Jordan Lee" style="width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;background:var(--surface);color:var(--text);font:inherit;">' +
+        '<div class="note-banner" style="margin-top:18px;">This is a decision-support tool. Use it alongside interviews and references — not as the sole basis for a hiring decision.</div>' +
+        '<button class="btn btn-primary" id="start" style="margin-top:8px;">Start assessment →</button>' +
+      "</div>";
+    document.getElementById("start").addEventListener("click", function () {
+      candidateName = (document.getElementById("cand").value || "").trim();
+      started = true;
+      current = 0;
+      renderQuestion();
+    });
+  }
+
+  function renderQuestion() {
+    var q = questions[current];
+    var pct = Math.round((current / questions.length) * 100);
+    var comp = DATA.competencies[q.competency].title;
+
+    var optsHtml = q._order.map(function (origIdx, displayIdx) {
+      var opt = q.options[origIdx];
+      var checked = answers[q.id] === origIdx ? " selected" : "";
+      var isChecked = answers[q.id] === origIdx ? " checked" : "";
+      return '<label class="option' + checked + '" data-orig="' + origIdx + '">' +
+        '<input type="radio" name="q" value="' + origIdx + '"' + isChecked + ">" +
+        '<span class="otext">' + opt.text + "</span></label>";
+    }).join("");
+
+    shell.innerHTML =
+      '<div class="progress no-print"><span style="width:' + pct + '%"></span></div>' +
+      '<div class="q-card">' +
+        '<div class="q-meta"><span>Question ' + (current + 1) + " of " + questions.length + "</span>" +
+          '<span class="tag">' + comp + (q.type === "knowledge" ? " · knowledge" : " · judgement") + "</span></div>" +
+        '<p class="q-stem">' + q.stem + "</p>" +
+        (q.context ? '<p class="q-context">' + q.context + "</p>" : "") +
+        '<div class="options">' + optsHtml + "</div>" +
+      "</div>" +
+      '<div class="quiz-actions">' +
+        '<button class="btn btn-ghost" id="back"' + (current === 0 ? " disabled" : "") + ">← Back</button>" +
+        '<button class="btn btn-primary" id="next">' + (current === questions.length - 1 ? "See results →" : "Next →") + "</button>" +
+      "</div>";
+
+    shell.querySelectorAll(".option").forEach(function (label) {
+      label.addEventListener("click", function () {
+        answers[q.id] = parseInt(label.dataset.orig, 10);
+        shell.querySelectorAll(".option").forEach(function (l) { l.classList.remove("selected"); });
+        label.classList.add("selected");
+        label.querySelector("input").checked = true;
+      });
+    });
+
+    document.getElementById("back").addEventListener("click", function () {
+      if (current > 0) { current--; renderQuestion(); }
+    });
+    document.getElementById("next").addEventListener("click", function () {
+      if (answers[q.id] === undefined) {
+        alert("Please choose an answer before continuing.");
+        return;
+      }
+      if (current === questions.length - 1) {
+        renderResults();
+      } else {
+        current++;
+        renderQuestion();
+      }
+    });
+  }
+
+  // --- Scoring ---
+  function score() {
+    var byComp = {};
+    Object.keys(DATA.competencies).forEach(function (c) {
+      byComp[c] = { earned: 0, max: 0 };
+    });
+    questions.forEach(function (q) {
+      var maxOpt = Math.max.apply(null, q.options.map(function (o) { return o.score; }));
+      byComp[q.competency].max += maxOpt;
+      var chosen = answers[q.id];
+      if (chosen !== undefined) byComp[q.competency].earned += q.options[chosen].score;
+    });
+
+    var totalEarned = 0, totalMax = 0;
+    var rows = Object.keys(byComp).map(function (c) {
+      var b = byComp[c];
+      totalEarned += b.earned; totalMax += b.max;
+      return {
+        id: c,
+        title: DATA.competencies[c].title,
+        pct: b.max ? Math.round((b.earned / b.max) * 100) : 0
+      };
+    });
+    rows.sort(function (a, b) { return b.pct - a.pct; });
+    return {
+      overall: totalMax ? Math.round((totalEarned / totalMax) * 100) : 0,
+      rows: rows
+    };
+  }
+
+  function band(pct) {
+    if (pct >= 85) return { label: "Expert", color: "var(--good)" };
+    if (pct >= 70) return { label: "Advanced", color: "var(--good)" };
+    if (pct >= 50) return { label: "Proficient", color: "var(--warn)" };
+    return { label: "Developing", color: "var(--bad)" };
+  }
+
+  function barColor(pct) {
+    if (pct >= 70) return "var(--good)";
+    if (pct >= 50) return "var(--warn)";
+    return "var(--bad)";
+  }
+
+  function renderResults() {
+    var res = score();
+    var b = band(res.overall);
+    var strengths = res.rows.filter(function (r) { return r.pct >= 70; });
+    var dev = res.rows.filter(function (r) { return r.pct < 50; });
+
+    var barsHtml = res.rows.map(function (r) {
+      return '<div class="bar-row">' +
+        '<div class="bar-head"><span>' + r.title + '</span><span class="pct">' + r.pct + "%</span></div>" +
+        '<div class="bar"><span style="width:' + r.pct + "%;background:" + barColor(r.pct) + ';"></span></div>' +
+      "</div>";
+    }).join("");
+
+    var strengthsHtml = strengths.length
+      ? "<ul>" + strengths.map(function (r) { return "<li><strong>" + r.title + "</strong> — " + r.pct + "%</li>"; }).join("") + "</ul>"
+      : "<p class=\"profile-note\">No competency reached the 'strength' threshold (70%+).</p>";
+
+    var devHtml;
+    if (dev.length) {
+      devHtml = dev.map(function (r) {
+        var probes = (DATA.probes[r.id] || []).map(function (p) { return "<li>" + p + "</li>"; }).join("");
+        return "<div style=\"margin:14px 0;\"><strong>" + r.title + "</strong> — " + r.pct + "%" +
+          '<div class="profile-note" style="margin:4px 0 6px;">Suggested interview probes:</div>' +
+          "<ul>" + probes + "</ul></div>";
+      }).join("");
+    } else {
+      devHtml = "<p class=\"profile-note\">No competency fell below the 50% development threshold — a well-rounded profile.</p>";
+    }
+
+    var when = new Date().toLocaleString();
+
+    shell.innerHTML =
+      '<div class="card" style="max-width:760px;margin:0 auto;">' +
+        '<div class="print-only" style="margin-bottom:10px;"><strong>ETR Supply Chain IQ — Supply Chain Manager Competency Report</strong></div>' +
+        (candidateName ? '<p class="profile-note">Candidate: <strong>' + candidateName + "</strong> · " + when + "</p>" : '<p class="profile-note">' + when + "</p>") +
+        '<div class="score-hero">' +
+          '<div class="score-ring" style="--val:' + res.overall + ';"><div class="inner"><span class="num">' + res.overall + "%</span></div></div>" +
+          '<div class="band" style="color:' + b.color + ';">' + b.label + "</div>" +
+          '<p class="profile-note">Overall competency score across all seven areas</p>' +
+        "</div>" +
+
+        "<h2 class=\"section-title\" style=\"font-size:1.3rem;margin-top:20px;\">Competency profile</h2>" +
+        barsHtml +
+
+        "<h2 class=\"section-title\" style=\"font-size:1.3rem;margin-top:24px;\">Strengths</h2>" +
+        strengthsHtml +
+
+        "<h2 class=\"section-title\" style=\"font-size:1.3rem;margin-top:20px;\">Development areas &amp; interview probes</h2>" +
+        devHtml +
+
+        '<div class="note-banner" style="margin-top:22px;">Interpretation: <strong>85%+ Expert</strong>, <strong>70–84% Advanced</strong>, <strong>50–69% Proficient</strong>, <strong>under 50% Developing</strong>. ' +
+        "Treat this as one input into a structured hiring process alongside interviews, references and a practical task.</div>" +
+
+        '<div class="quiz-actions">' +
+          '<button class="btn btn-ghost no-print" id="retake">Retake</button>' +
+          '<button class="btn btn-primary no-print" id="print">Print / Save as PDF</button>' +
+        "</div>" +
+      "</div>";
+
+    document.getElementById("print").addEventListener("click", function () { window.print(); });
+    document.getElementById("retake").addEventListener("click", function () {
+      answers = {}; current = 0; started = false; renderIntro();
+    });
+  }
+
+  renderIntro();
+})();
+/* ETR Supply Chain IQ — single-file app: view router + knowledge-base reader.
+   The assessment engine is provided by the inlined assess.js (renders into #quiz).
+   Views are plain show/hide sections driven by the URL hash:
+     #home  #learn  #learn/<module>  #assess  #forhr  */
+(function () {
+  var CUR = window.CURRICULUM || [];
+  var VIEWS = ["home", "learn", "assess", "forhr", "strategy"];
+
+  function showView(view) {
+    document.querySelectorAll("[data-view-section]").forEach(function (s) {
+      s.style.display = (s.getAttribute("data-view-section") === view) ? "" : "none";
+    });
+    document.querySelectorAll("a.navlink").forEach(function (a) {
+      a.classList.toggle("active", a.getAttribute("data-view") === view);
+    });
+  }
+
+  var sidebarBuilt = false;
+  function buildSidebar() {
+    var sb = document.getElementById("module-nav");
+    if (!sb || sidebarBuilt) return;
+    sidebarBuilt = true;
+    CUR.forEach(function (m) {
+      var a = document.createElement("a");
+      a.href = "#learn/" + m.id;
+      a.textContent = m.icon + "  " + m.title;
+      a.dataset.id = m.id;
+      sb.appendChild(a);
+    });
+  }
+
+  function renderModule(id) {
+    buildSidebar();
+    var main = document.getElementById("module-content");
+    if (!main || !CUR.length) return;
+    var mod = CUR.find(function (m) { return m.id === id; }) || CUR[0];
+    document.querySelectorAll("#module-nav a").forEach(function (a) {
+      a.classList.toggle("active", a.dataset.id === mod.id);
+    });
+    main.innerHTML =
+      '<div class="kicker">Competency</div>' +
+      "<h1>" + mod.icon + " " + mod.title + "</h1>" +
+      '<p class="section-sub">' + mod.summary + "</p>" +
+      mod.body;
+  }
+
+  function route() {
+    var parts = location.hash.replace(/^#/, "").split("/");
+    var view = parts[0] || "home";
+    if (VIEWS.indexOf(view) < 0) view = "home";
+    showView(view);
+    if (view === "learn") renderModule(parts[1] || (CUR[0] && CUR[0].id));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // Any element with data-view navigates by setting the hash (data-module for a lesson).
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest("[data-view]");
+    if (!t) return;
+    e.preventDefault();
+    var view = t.getAttribute("data-view");
+    var mod = t.getAttribute("data-module");
+    location.hash = (view === "learn" && mod) ? ("learn/" + mod) : view;
+  });
+
+  window.addEventListener("hashchange", route);
+
+  var y = document.querySelector("[data-year]");
+  if (y) y.textContent = new Date().getFullYear();
+
+  route();
+})();
+
+/* ---------- Page-load curtain + staggered reveal ---------- */
+(function () {
+  var SEL = ".hero .eyebrow, .hero h1, .hero .lead, .hero .cta, " +
+    ".section-title, .section-sub, .card, " +
+    "article.module .kicker, article.module h1, article.module h2, article.module > p, " +
+    "article.module > ul, article.module .kpi-table, article.module .callout, " +
+    "article.module .chart, article.module .step, article.module .note-banner";
+
+  function activeSection() {
+    var secs = document.querySelectorAll("[data-view-section]");
+    for (var i = 0; i < secs.length; i++) {
+      if (getComputedStyle(secs[i]).display !== "none") return secs[i];
+    }
+    return document.body;
+  }
+
+  function reveal() {
+    var els = activeSection().querySelectorAll(SEL);
+    Array.prototype.forEach.call(els, function (el, i) {
+      if (el.classList.contains("is-in")) return;
+      el.style.transitionDelay = Math.min(i * 70, 640) + "ms";
+      requestAnimationFrame(function () { el.classList.add("is-in"); });
+    });
+  }
+
+  // Re-run reveal after each view change (router updates the hash).
+  window.addEventListener("hashchange", function () { setTimeout(reveal, 40); });
+
+  function start() {
+    var c = document.getElementById("curtain");
+    if (c) {
+      setTimeout(function () { c.classList.add("up"); }, 480);
+      setTimeout(function () { c.style.display = "none"; }, 1500);
+    }
+    setTimeout(reveal, 260);
+  }
+  if (document.readyState === "complete") start();
+  else window.addEventListener("load", start);
+})();
+  </script>
+</body>
+</html>
